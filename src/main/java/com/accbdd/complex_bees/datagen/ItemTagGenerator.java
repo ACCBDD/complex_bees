@@ -11,6 +11,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
+import static com.accbdd.complex_bees.ComplexBees.MODID;
 import static com.accbdd.complex_bees.datagen.DataGenerators.itemTag;
 
 public class ItemTagGenerator extends ItemTagsProvider {
@@ -21,8 +22,8 @@ public class ItemTagGenerator extends ItemTagsProvider {
     public static final TagKey<Item> RAW_URANIUM = itemTag("c", "raw_materials/uranium");
     public static final TagKey<Item> RAW_ZINC = itemTag("c", "raw_materials/zinc");
 
-    public ItemTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, CompletableFuture<TagLookup<Block>> blockTagProvider, String modId, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, provider, blockTagProvider, modId, existingFileHelper);
+    public ItemTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, CompletableFuture<TagLookup<Block>> blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
+        super(output, provider, blockTagProvider, MODID, existingFileHelper);
     }
 
     @Override

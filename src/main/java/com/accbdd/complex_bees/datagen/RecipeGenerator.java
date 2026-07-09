@@ -35,6 +35,11 @@ public class RecipeGenerator extends RecipeProvider {
         super.buildRecipes(output);
 
         tagCombCentrifugeRecipe(output, "tin_comb", ComplexCombs.TIN);
+        tagCombCentrifugeRecipe(output, "silver_comb", ComplexCombs.SILVER);
+        tagCombCentrifugeRecipe(output, "lead_comb", ComplexCombs.LEAD);
+        tagCombCentrifugeRecipe(output, "uranium_comb", ComplexCombs.URANIUM);
+        tagCombCentrifugeRecipe(output, "osmium_comb", ComplexCombs.OSMIUM);
+        tagCombCentrifugeRecipe(output, "zinc_comb", ComplexCombs.ZINC);
     }
 
     protected static void centrifugeRecipe(RecipeOutput output, String name, Ingredient input, Product... outputs) {

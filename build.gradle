@@ -83,6 +83,8 @@ dependencies {
     runtimeOnly "curse.maven:mekanism-268560:7904058"
     runtimeOnly "curse.maven:pipez-443900:8351631"
     runtimeOnly "curse.maven:create-328085:7963363"
+    runtimeOnly "curse.maven:applied-energistics-2-223794:7027323"
+    runtimeOnly "curse.maven:guideme-1173950:8129788"
 
     implementation "curse.maven:complicated-bees-1100137:8389292"
 }
