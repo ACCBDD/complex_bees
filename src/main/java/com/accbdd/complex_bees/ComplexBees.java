@@ -1,5 +1,6 @@
 package com.accbdd.complex_bees;
 
+import com.accbdd.complex_bees.datagen.DataGenerators;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -14,6 +15,7 @@ public class ComplexBees {
 
     public ComplexBees(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(DataGenerators::generate);
         //NeoForge.EVENT_BUS.register(this);
     }
 

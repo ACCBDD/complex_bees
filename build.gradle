@@ -80,9 +80,11 @@ dependencies {
     runtimeOnly "curse.maven:emi-580555:8081408"
     runtimeOnly "curse.maven:patchouli-306770:7730942"
     runtimeOnly "curse.maven:appleskin-248787:7854442"
-    runtimeO
+    runtimeOnly "curse.maven:mekanism-268560:7904058"
+    runtimeOnly "curse.maven:pipez-443900:8351631"
+    runtimeOnly "curse.maven:create-328085:7963363"
 
-    implementation "curse.maven:complicated-bees-1100137:8383766"
+    implementation "curse.maven:complicated-bees-1100137:8389292"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
