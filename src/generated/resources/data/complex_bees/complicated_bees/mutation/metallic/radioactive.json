@@ -1,0 +1,11 @@
+{
+  "chance": 0.08,
+  "conditions": {
+    "complicated_bees:block_tag_under": {
+      "tag": "c:storage_blocks/uranium"
+    }
+  },
+  "first": "complicated_bees:cuprous",
+  "result": "complex_bees:radioactive",
+  "second": "complicated_bees:conductive"
+}

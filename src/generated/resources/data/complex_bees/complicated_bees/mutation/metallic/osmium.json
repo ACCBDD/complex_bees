@@ -1,0 +1,11 @@
+{
+  "chance": 0.1,
+  "conditions": {
+    "complicated_bees:block_tag_under": {
+      "tag": "c:storage_blocks/osmium"
+    }
+  },
+  "first": "complicated_bees:ferrous",
+  "result": "complex_bees:osmium",
+  "second": "complicated_bees:diligent"
+}

@@ -1,0 +1,11 @@
+{
+  "chance": 0.08,
+  "conditions": {
+    "complicated_bees:block_tag_under": {
+      "tag": "c:storage_blocks/silver"
+    }
+  },
+  "first": "complicated_bees:precious",
+  "result": "complex_bees:argentum",
+  "second": "complicated_bees:resilient"
+}

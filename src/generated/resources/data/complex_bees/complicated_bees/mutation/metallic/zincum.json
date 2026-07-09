@@ -1,0 +1,11 @@
+{
+  "chance": 0.12,
+  "conditions": {
+    "complicated_bees:block_tag_under": {
+      "tag": "c:storage_blocks/zinc"
+    }
+  },
+  "first": "complicated_bees:cuprous",
+  "result": "complex_bees:zincum",
+  "second": "complicated_bees:robust"
+}

@@ -1,0 +1,33 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:raw_materials/lead"
+      }
+    }
+  ],
+  "type": "complicated_bees:centrifuge",
+  "input": {
+    "type": "neoforge:components",
+    "components": {
+      "complicated_bees:comb_type": "complex_bees:lead"
+    },
+    "items": "complicated_bees:comb"
+  },
+  "outputs": [
+    {
+      "chance": 0.5,
+      "item": "complicated_bees:beeswax"
+    },
+    {
+      "chance": 0.3,
+      "item": "complicated_bees:honey_droplet"
+    },
+    {
+      "chance": 0.25,
+      "tag": "c:raw_materials/lead"
+    }
+  ]
+}
