@@ -26,10 +26,10 @@ import static com.accbdd.complex_bees.ComplexBees.MODID;
 import static com.accbdd.complex_bees.datagen.DataGenerators.loc;
 
 public class ComplexMutations extends JsonCodecProvider<Mutation> {
+    //TODO: remove these mutations from microscope list!
     public static final List<MutationEntry> MUTATIONS = new ArrayList<>();
 
-    public ComplexMutations(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
-        super(output, PackOutput.Target.DATA_PACK, "complicated_bees/mutation", PackType.SERVER_DATA, Mutation.MUTATION_CODEC, lookupProvider, MODID, existingFileHelper);
+    static {
         mutation("metallic/stannum",
                 ItemTagGenerator.RAW_TIN,
                 BuiltInSpecies.FERROUS.getKey(),
@@ -72,6 +72,10 @@ public class ComplexMutations extends JsonCodecProvider<Mutation> {
                 ComplexSpecies.PLUMBUM.key(),
                 0.10f,
                 new BlockTagUnderCondition(BlockTagGenerator.LEAD));
+    }
+
+    public ComplexMutations(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
+        super(output, PackOutput.Target.DATA_PACK, "complicated_bees/mutation", PackType.SERVER_DATA, Mutation.MUTATION_CODEC, lookupProvider, MODID, existingFileHelper);
     }
 
     @Override

@@ -20,6 +20,20 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+    maven {
+        name = "Sleeping Town"
+        url = "https://repo.sleeping.town/"
+    }
 }
 
 base {
@@ -74,9 +88,15 @@ neoForge {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
 
 dependencies {
-    runtimeOnly "curse.maven:jei-238222:8376022"
+    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
+    compileOnly "dev.emi:emi-neoforge:${emi_version}+${minecraft_version}:api"
+
     runtimeOnly "curse.maven:emi-580555:8081408"
     runtimeOnly "curse.maven:patchouli-306770:7730942"
     runtimeOnly "curse.maven:appleskin-248787:7854442"
@@ -85,6 +105,15 @@ dependencies {
     runtimeOnly "curse.maven:create-328085:7963363"
     runtimeOnly "curse.maven:applied-energistics-2-223794:7027323"
     runtimeOnly "curse.maven:guideme-1173950:8129788"
+
+    if (runtime_recipe_viewer == "jei") {
+        localRuntime "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    } else if (runtime_recipe_viewer == "emi") {
+        localRuntime "dev.emi:emi-neoforge:${emi_version}+${minecraft_version}"
+    } else if (runtime_recipe_viewer == "emi+") {
+        localRuntime "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+        localRuntime "dev.emi:emi-neoforge:${emi_version}+${minecraft_version}"
+    }
 
     implementation "curse.maven:complicated-bees-1100137:8389292"
 }
