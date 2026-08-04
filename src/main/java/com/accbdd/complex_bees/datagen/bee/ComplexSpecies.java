@@ -37,54 +37,63 @@ public class ComplexSpecies extends JsonCodecProvider<Species> {
     public static final List<ResourceLocation> JAZZY_MODELS = getModelList("complicated_bees", "jazzy");
     public static final List<ResourceLocation> TRICKY_MODELS = getModelList("complicated_bees", "tricky");
 
-    public static final SpeciesEntry STANNUM = species(ItemTagGenerator.RAW_TIN, new Species.Builder(loc("stannum"))
-            .dominant(true)
-            .foil(false)
-            .colors(0xabbebd)
-            .models(GRAY_MODELS)
-            .products(List.of(new Product(stack(Combs.ROCKY), 0.30f), new Product(stack(ComplexCombs.TIN), 0.15f)))
-            .gene(GeneRegistration.LIFESPAN, new GeneLifespan(EnumLifespan.SHORT, true))
-            .gene(GeneRegistration.TEMPERATURE, new GeneTemperature(EnumTemperature.NORMAL, EnumTolerance.UP_1, true))
-            .gene(GeneRegistration.HUMIDITY, new GeneHumidity(EnumHumidity.NORMAL, EnumTolerance.NONE, true))
-            .gene(GeneRegistration.PRODUCTIVITY, new GeneProductivity(EnumProductivity.AVERAGE, true))
-            .gene(GeneRegistration.FLOWER, new GeneFlower(Flowers.CALCITE.getKey().location(), true))
-            .gene(GeneRegistration.ACTIVE_TIME, new GeneActiveTime(EnumActiveTime.NOCTURNAL, true))
-            .gene(GeneRegistration.CAVE_DWELLING, new GeneBoolean(true, true))
-            .gene(GeneRegistration.FERTILITY, new GeneFertility(3, false))
-    );
-    public static final SpeciesEntry OSMIUM = species(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("osmium"))
-            .colors(0x97a7f7)
-            .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.OSMIUM), 0.15f)))
-            .gene(GeneRegistration.FLOWER, new GeneFlower(Flowers.TUFF.getKey().location(), true))
-            .gene(GeneRegistration.FERTILITY, new GeneFertility(2, true))
-    );
-    public static final SpeciesEntry ZINCUM = species(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("zincum"))
-            .colors(0xbbefc1)
-            .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.ZINC), 0.15f)))
-            .gene(GeneRegistration.FLOWER, new GeneFlower(ComplexFlowers.ANDESITE.key().location(), true))
-            .gene(GeneRegistration.FERTILITY, new GeneFertility(2, false))
-    );
-    public static final SpeciesEntry PLUMBUM = species(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("plumbum"))
-            .colors(0x846dba)
-            .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.LEAD), 0.15f)))
-            .gene(GeneRegistration.FLOWER, new GeneFlower(ComplexFlowers.ANDESITE.key().location(), true))
-            .gene(GeneRegistration.FERTILITY, new GeneFertility(2, false))
-    );
-    public static final SpeciesEntry RADIOACTIVE = species(ItemTagGenerator.RAW_URANIUM, Species.Builder.of(STANNUM.species, loc("radioactive"))
-            .colors(0x81c04e)
-            .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.URANIUM), 0.15f)))
-            .gene(GeneRegistration.FLOWER, new GeneFlower(Flowers.DIORITE.getKey().location(), true))
-            .gene(GeneRegistration.LIFESPAN, new GeneLifespan(EnumLifespan.SHORTER, true))
-            .gene(GeneRegistration.PRODUCTIVITY, new GeneProductivity(EnumProductivity.SLOW, true))
-            .gene(GeneRegistration.FERTILITY, new GeneFertility(2, true))
-            .gene(GeneRegistration.EFFECT, new GeneEffect(ComplexEffectRegistration.RADIOACTIVE.get(), true))
-    );
-    public static final SpeciesEntry ARGENTUM = species(ItemTagGenerator.RAW_SILVER, Species.Builder.of(STANNUM.species, loc("argentum"))
-            .colors(0xcfcfcf)
-            .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.SILVER), 0.15f)))
-            .gene(GeneRegistration.FLOWER, new GeneFlower(ComplexFlowers.ANDESITE.key().location(), true))
-            .gene(GeneRegistration.FERTILITY, new GeneFertility(2, true))
-    );
+    public static final SpeciesEntry STANNUM;
+    public static final SpeciesEntry OSMIUM;
+    public static final SpeciesEntry ZINCUM;
+    public static final SpeciesEntry PLUMBUM;
+    public static final SpeciesEntry RADIOACTIVE;
+    public static final SpeciesEntry ARGENTUM;
+
+    static {
+        STANNUM = species(ItemTagGenerator.RAW_TIN, new Species.Builder(loc("stannum"))
+                .dominant(true)
+                .foil(false)
+                .colors(0xabbebd)
+                .models(GRAY_MODELS)
+                .products(List.of(new Product(stack(Combs.ROCKY), 0.30f), new Product(stack(ComplexCombs.TIN), 0.15f)))
+                .gene(GeneRegistration.LIFESPAN, new GeneLifespan(EnumLifespan.SHORT, true))
+                .gene(GeneRegistration.TEMPERATURE, new GeneTemperature(EnumTemperature.NORMAL, EnumTolerance.UP_1, true))
+                .gene(GeneRegistration.HUMIDITY, new GeneHumidity(EnumHumidity.NORMAL, EnumTolerance.NONE, true))
+                .gene(GeneRegistration.PRODUCTIVITY, new GeneProductivity(EnumProductivity.AVERAGE, true))
+                .gene(GeneRegistration.FLOWER, new GeneFlower(Flowers.CALCITE.getKey().location(), true))
+                .gene(GeneRegistration.ACTIVE_TIME, new GeneActiveTime(EnumActiveTime.NOCTURNAL, true))
+                .gene(GeneRegistration.CAVE_DWELLING, new GeneBoolean(true, true))
+                .gene(GeneRegistration.FERTILITY, new GeneFertility(3, false))
+        );
+        OSMIUM = species(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("osmium"))
+                .colors(0x97a7f7)
+                .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.OSMIUM), 0.15f)))
+                .gene(GeneRegistration.FLOWER, new GeneFlower(Flowers.TUFF.getKey().location(), true))
+                .gene(GeneRegistration.FERTILITY, new GeneFertility(2, true))
+        );
+        ZINCUM = species(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("zincum"))
+                .colors(0xbbefc1)
+                .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.ZINC), 0.15f)))
+                .gene(GeneRegistration.FLOWER, new GeneFlower(ComplexFlowers.ANDESITE.key().location(), true))
+                .gene(GeneRegistration.FERTILITY, new GeneFertility(2, false))
+        );
+        PLUMBUM = species(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("plumbum"))
+                .colors(0x846dba)
+                .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.LEAD), 0.15f)))
+                .gene(GeneRegistration.FLOWER, new GeneFlower(ComplexFlowers.ANDESITE.key().location(), true))
+                .gene(GeneRegistration.FERTILITY, new GeneFertility(2, false))
+        );
+        RADIOACTIVE = species(ItemTagGenerator.RAW_URANIUM, Species.Builder.of(STANNUM.species, loc("radioactive"))
+                .colors(0x81c04e)
+                .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.URANIUM), 0.15f)))
+                .gene(GeneRegistration.FLOWER, new GeneFlower(Flowers.DIORITE.getKey().location(), true))
+                .gene(GeneRegistration.LIFESPAN, new GeneLifespan(EnumLifespan.SHORTER, true))
+                .gene(GeneRegistration.PRODUCTIVITY, new GeneProductivity(EnumProductivity.SLOW, true))
+                .gene(GeneRegistration.FERTILITY, new GeneFertility(2, true))
+                .gene(GeneRegistration.EFFECT, new GeneEffect(ComplexEffectRegistration.RADIOACTIVE.get(), true))
+        );
+        ARGENTUM = species(ItemTagGenerator.RAW_SILVER, Species.Builder.of(STANNUM.species, loc("argentum"))
+                .colors(0xcfcfcf)
+                .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.SILVER), 0.15f)))
+                .gene(GeneRegistration.FLOWER, new GeneFlower(ComplexFlowers.ANDESITE.key().location(), true))
+                .gene(GeneRegistration.FERTILITY, new GeneFertility(2, true))
+        );
+    }
 
     public ComplexSpecies(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
         super(output, PackOutput.Target.DATA_PACK, "complicated_bees/species", PackType.SERVER_DATA, Species.CODEC, lookupProvider, MODID, existingFileHelper);

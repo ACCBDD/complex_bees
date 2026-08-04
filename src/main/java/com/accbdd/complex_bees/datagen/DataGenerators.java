@@ -2,7 +2,6 @@ package com.accbdd.complex_bees.datagen;
 
 import com.accbdd.complex_bees.datagen.bee.ComplexCombs;
 import com.accbdd.complex_bees.datagen.bee.ComplexFlowers;
-import com.accbdd.complex_bees.datagen.bee.ComplexMutations;
 import com.accbdd.complex_bees.datagen.bee.ComplexSpecies;
 import com.accbdd.complicated_bees.bees.Comb;
 import com.accbdd.complicated_bees.registry.EsotericRegistration;
@@ -39,7 +38,6 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new RecipeGenerator(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new ComplexCombs(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new ComplexFlowers(packOutput, lookupProvider, existingFileHelper));
-        generator.addProvider(event.includeServer(), new ComplexMutations(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new ComplexSpecies(packOutput, lookupProvider, existingFileHelper));
     }
 

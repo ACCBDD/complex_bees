@@ -20,6 +20,18 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        // forRepositories(fg.repository) // Uncomment when using ForgeGradle
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
     maven {
         // location of the maven that hosts JEI files since January 2023
         name = "Jared's maven"
@@ -115,7 +127,7 @@ dependencies {
         localRuntime "dev.emi:emi-neoforge:${emi_version}+${minecraft_version}"
     }
 
-    implementation "curse.maven:complicated-bees-1100137:8389292"
+    implementation "maven.modrinth:uhqEKIQS:xk6PhYXs" //combees
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
