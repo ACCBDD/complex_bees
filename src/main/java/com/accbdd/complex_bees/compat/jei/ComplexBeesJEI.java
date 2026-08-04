@@ -26,7 +26,7 @@ public class ComplexBeesJEI implements IModPlugin {
     @Override
     public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
         for (ComplexSpecies.SpeciesEntry entry : ComplexSpecies.SPECIES) {
-            if (BuiltInRegistries.ITEM.getTag(entry.tag()).isEmpty()) {
+            if (entry.tag() != null && BuiltInRegistries.ITEM.getTag(entry.tag()).isEmpty()) {
                 Species species = SpeciesRegistration.getFromResourceLocation(entry.key().location());
                 if (species == null)
                     continue;

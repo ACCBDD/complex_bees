@@ -45,7 +45,7 @@ public class ComplexSpecies extends JsonCodecProvider<Species> {
     public static final SpeciesEntry ARGENTUM;
 
     static {
-        STANNUM = species(ItemTagGenerator.RAW_TIN, new Species.Builder(loc("stannum"))
+        STANNUM = tagSpecies(ItemTagGenerator.RAW_TIN, new Species.Builder(loc("stannum"))
                 .dominant(true)
                 .foil(false)
                 .colors(0xabbebd)
@@ -60,25 +60,25 @@ public class ComplexSpecies extends JsonCodecProvider<Species> {
                 .gene(GeneRegistration.CAVE_DWELLING, new GeneBoolean(true, true))
                 .gene(GeneRegistration.FERTILITY, new GeneFertility(3, false))
         );
-        OSMIUM = species(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("osmium"))
+        OSMIUM = tagSpecies(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("osmium"))
                 .colors(0x97a7f7)
                 .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.OSMIUM), 0.15f)))
                 .gene(GeneRegistration.FLOWER, new GeneFlower(Flowers.TUFF.getKey().location(), true))
                 .gene(GeneRegistration.FERTILITY, new GeneFertility(2, true))
         );
-        ZINCUM = species(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("zincum"))
+        ZINCUM = tagSpecies(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("zincum"))
                 .colors(0xbbefc1)
                 .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.ZINC), 0.15f)))
                 .gene(GeneRegistration.FLOWER, new GeneFlower(ComplexFlowers.ANDESITE.key().location(), true))
                 .gene(GeneRegistration.FERTILITY, new GeneFertility(2, false))
         );
-        PLUMBUM = species(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("plumbum"))
+        PLUMBUM = tagSpecies(ItemTagGenerator.RAW_OSMIUM, Species.Builder.of(STANNUM.species, loc("plumbum"))
                 .colors(0x846dba)
                 .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.LEAD), 0.15f)))
                 .gene(GeneRegistration.FLOWER, new GeneFlower(ComplexFlowers.ANDESITE.key().location(), true))
                 .gene(GeneRegistration.FERTILITY, new GeneFertility(2, false))
         );
-        RADIOACTIVE = species(ItemTagGenerator.RAW_URANIUM, Species.Builder.of(STANNUM.species, loc("radioactive"))
+        RADIOACTIVE = tagSpecies(ItemTagGenerator.RAW_URANIUM, Species.Builder.of(STANNUM.species, loc("radioactive"))
                 .colors(0x81c04e)
                 .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.URANIUM), 0.15f)))
                 .gene(GeneRegistration.FLOWER, new GeneFlower(Flowers.DIORITE.getKey().location(), true))
@@ -87,7 +87,7 @@ public class ComplexSpecies extends JsonCodecProvider<Species> {
                 .gene(GeneRegistration.FERTILITY, new GeneFertility(2, true))
                 .gene(GeneRegistration.EFFECT, new GeneEffect(ComplexEffectRegistration.RADIOACTIVE.get(), true))
         );
-        ARGENTUM = species(ItemTagGenerator.RAW_SILVER, Species.Builder.of(STANNUM.species, loc("argentum"))
+        ARGENTUM = tagSpecies(ItemTagGenerator.RAW_SILVER, Species.Builder.of(STANNUM.species, loc("argentum"))
                 .colors(0xcfcfcf)
                 .products(List.of(new Product(stack(Combs.ROCKY), 0.3f), new Product(stack(ComplexCombs.SILVER), 0.15f)))
                 .gene(GeneRegistration.FLOWER, new GeneFlower(ComplexFlowers.ANDESITE.key().location(), true))
@@ -109,10 +109,14 @@ public class ComplexSpecies extends JsonCodecProvider<Species> {
                 ResourceLocation.fromNamespaceAndPath(namespace, "bee/" + name + "_queen"));
     }
 
-    protected static SpeciesEntry species(TagKey<Item> tag, Species.Builder builder) {
-        SpeciesEntry comb = new SpeciesEntry(tag, builder);
-        SPECIES.add(comb);
-        return comb;
+    protected static SpeciesEntry tagSpecies(TagKey<Item> tag, Species.Builder builder) {
+        SpeciesEntry entry = new SpeciesEntry(tag, builder);
+        SPECIES.add(entry);
+        return entry;
+    }
+
+    protected static SpeciesEntry species(Species.Builder builder) {
+        return tagSpecies(null, builder);
     }
 
     @Override

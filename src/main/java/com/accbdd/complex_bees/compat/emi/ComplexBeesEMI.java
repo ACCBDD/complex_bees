@@ -20,7 +20,7 @@ public class ComplexBeesEMI implements EmiPlugin {
     @Override
     public void register(EmiRegistry registry) {
         for (ComplexSpecies.SpeciesEntry entry : ComplexSpecies.SPECIES) {
-            if (BuiltInRegistries.ITEM.getTag(entry.tag()).isEmpty()) {
+            if (entry.tag() != null && BuiltInRegistries.ITEM.getTag(entry.tag()).isEmpty()) {
                 Species species = entry.species();
                 species.toMembers().forEach(stack -> registry.removeEmiStacks(EmiStack.of(stack)));
                 registry.removeEmiStacks(EmiStack.of(BeeNestBlock.stackNest(ItemsRegistration.BEE_NEST.get().getDefaultInstance(), SpeciesRegistration.getFromResourceLocation(entry.key().location()))));
