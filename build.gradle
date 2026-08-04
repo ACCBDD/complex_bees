@@ -109,7 +109,6 @@ dependencies {
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
     compileOnly "dev.emi:emi-neoforge:${emi_version}+${minecraft_version}:api"
 
-    runtimeOnly "curse.maven:emi-580555:8081408"
     runtimeOnly "curse.maven:patchouli-306770:7730942"
     runtimeOnly "curse.maven:appleskin-248787:7854442"
     runtimeOnly "curse.maven:mekanism-268560:7904058"
